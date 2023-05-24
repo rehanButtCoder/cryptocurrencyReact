@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
-import { showAllCoins } from '../services/coins/showAllCoins';
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment, fetchAllUsers } from '../features/coins/coinSlice'
+import { decrement, fetchAllCoins, increment } from '../features/coins/coinSlice'
 
 const Coins = () => {
   const count = useSelector((state) => state.coins.value)
@@ -15,7 +14,7 @@ const Coins = () => {
 
   // 
   useEffect(() => {
-    dispatch(fetchAllUsers());
+    dispatch(fetchAllCoins());
   }, [dispatch]);
 
 
@@ -37,10 +36,20 @@ const Coins = () => {
   // };
 
   // console.log(data);
-  // useEffect(() => {
-  //   getFunc();
-  // }, [])
-
+  useEffect(() => {
+    if (error) {
+      Swal.fire({
+        title: "Error",
+        timer: 3500,
+        icon: "error",
+        showConfirmButton: false,
+      })
+    }
+    // getFunc();
+  }, [error])
+  // hit login api
+  // hit signup api
+  // hadle multiple call api call requests hit 5 apis in a fucntion
   return (
     <div>Cryptocurrencies
       {loading ? <h1>loading.....</h1> :

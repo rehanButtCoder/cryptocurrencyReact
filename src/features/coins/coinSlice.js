@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsers } from "../../services/coins/showAllCoins";
+import {  getAllCoins } from "../../services/coins/showAllCoins";
 
 const initialState = {
   value: 0,
@@ -50,11 +50,13 @@ export const {
   getCoinsSuccess,
   getCoinsFailure,
 } = coinSlice.actions;
-//
-export const fetchAllUsers = () => async (dispatch) => {
+
+// calling functions here
+
+export const fetchAllCoins = () => async (dispatch) => {
   try {
     dispatch(getCoinsStart());
-    const response = await fetchUsers();
+    const response = await getAllCoins();
     dispatch(getCoinsSuccess(response.data));
   } catch (error) {
     dispatch(getCoinsFailure(error));

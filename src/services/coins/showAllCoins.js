@@ -16,4 +16,12 @@ import axios from "../axios";
 // };
 
 // redux toolkit using following method
-export const fetchUsers = () => axios.get('/exchange/-zdvbieRdZ/coins');
+const headers = {
+  "X-RapidAPI-Key": "61acca7d3fmshf60a9ddf5f89a5ep1e0b5ejsn9aa7b8593262",
+  "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+};
+
+export const getAllCoins = () =>
+  axios.get("/exchange/-zdvbieRdZ/coins", {
+    headers: headers,
+  });
