@@ -4,9 +4,10 @@ import { Layout, Typography, Space } from "antd";
 import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
 import Exchanges from "./components/Exchanges";
-import Cryptocurrencies from "./components/Cryptocurrencies";
+// import Cryptocurrencies from "./components/Cryptocurrencies";
 import CryptoDetails from "./components/CryptoDetails";
 import News from "./components/News";
+import Coins from "./components/Coins";
 // import { Exchanges, Homepage, News, Cryptocurrencies, CryptoDetails, Navbar } from './components';
 // import 'antd/dist/antd.css';
 
@@ -24,7 +25,7 @@ const App = () => (
             <Route
               exact
               path="/cryptocurrencies"
-              element={<Cryptocurrencies />}
+              element={<Coins />}
             />
             <Route exact path="/crypto/:coinId" element={<CryptoDetails />} />
             <Route exact path="/news" element={<News />} />
